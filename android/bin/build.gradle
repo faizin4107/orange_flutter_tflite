@@ -1,0 +1,46 @@
+group 'com.orange.flutter.tflite.orange_flutter_tflite'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://google.bintray.com/tensorflow'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 24
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    dependencies {
+        compile 'org.tensorflow:tensorflow-lite:+'
+        compile 'org.tensorflow:tensorflow-lite-gpu:+'
+        // compile 'org.tensorflow:tensorflow-android:+'
+    }
+}
